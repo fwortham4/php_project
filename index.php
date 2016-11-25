@@ -34,7 +34,8 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
 </head>
 <body>
   <div class="list">
-    <h1 class="header">To do.</h1>
+    <img src="http://nexttestsite.com/simplifyaweb/wp-content/uploads/2016/06/simplifya_logo.png" alt="Simplifya" class="logo" scale="0">
+    <!-- <h1 class="header">Cannabis Compliance</h1> -->
 
     <?php if(!empty($items)): ?>
     <ul class="items">
@@ -50,11 +51,11 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
       <?php endforeach; ?>
     </ul>
     <?php else: ?>
-      <p>No items to do!</p>
+      <p>No Compliance Items are Currently Listed!</p>
     <?php endif; ?>
 
     <form class="item-add" action="add.php" method="POST">
-      <input type="text" name="name" placeholder="Add to the to do list HERE." class="input" autocomplete="off" required>
+      <input type="text" name="name" placeholder="Add an Item to the List." class="input" autocomplete="off" required>
       <input type="submit" value="Add Item" class="submit">
     </form>
 
