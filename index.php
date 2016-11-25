@@ -42,7 +42,9 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
         <li>
           <span class="item<?php echo $item['done'] ? ' done' : '' ?>"><?php echo $item['name']; ?></span>
           <?php if(!$item['done']): ?>
-            <a href="mark.php?as=done&item=<?php echo $item['id'];  ?>" class="done-button">Mark as Done</a>
+            <a href="mark.php?as=done&item=<?php echo $item['id'];  ?>" class="done-button">Mark as In Compliance</a>
+          <?php elseif($item['done']): ?>
+            <a href="mark.php?as=notdone&item=<?php echo $item['id'];  ?>" class="done-button">Unmark</a>
           <?php endif; ?>
         </li>
       <?php endforeach; ?>
