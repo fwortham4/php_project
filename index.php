@@ -1,3 +1,26 @@
+<?php
+
+require_once 'app/init.php';
+
+$itemsQuery = $db->prepare("
+  SELECT id, name, done
+  FROM items
+  WHERE user = :user
+");
+
+$itemsQuery->execute([
+  'user' => $_SESSION['user_id']
+]);
+
+$items = $itemsQuery->rowCount() ? $itemsQuery : [];
+
+// foreach($items as $item) {
+//   print_r($item);
+//   // echo $item['name'], '<br>';
+// }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,19 +36,20 @@
   <div class="list">
     <h1 class="header">To do.</h1>
 
+    <?php if(!empty($items)): ?>
     <ul class="items">
-      <li>
-        <span class="item done">Learn PHP</span>
-      </li>
-      <li>
-        <span class="item">Get a Job</span>
-        <a href="#" class="done-button">Mark as Done</a>
-      </li>
-      <li>
-        <span class="item">Be Awesome</span>
-        <a href="#" class="done-button">Mark as Done</a>
-      </li>
+      <?php foreach($items as $item): ?>
+        <li>
+          <span class="item<?php echo $item['done'] ? ' done' : '' ?>"><?php echo $item['name']; ?></span>
+          <?php if(!$item['done']): ?>
+            <a href="#" class="done-button">Mark as Done</a>
+          <?php endif; ?>
+        </li>
+      <?php endforeach; ?>
     </ul>
+    <?php else: ?>
+      <p>No items to do!</p>
+    <?php endif; ?>
 
     <form class="item-add" action="add.php" method="POST">
       <input type="text" name="name" placeholder="Add to the to do list HERE." class="input" autocomplete="off" required>
