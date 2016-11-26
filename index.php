@@ -34,7 +34,8 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
 </head>
 <body>
   <div class="list">
-    <h1 class="header">To do.</h1>
+    <img src="http://nexttestsite.com/simplifyaweb/wp-content/uploads/2016/06/simplifya_logo.png" alt="Simplifya" class="logo" scale="0">
+    <!-- <h1 class="header">Cannabis Compliance</h1> -->
 
     <?php if(!empty($items)): ?>
     <ul class="items">
@@ -42,17 +43,19 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
         <li>
           <span class="item<?php echo $item['done'] ? ' done' : '' ?>"><?php echo $item['name']; ?></span>
           <?php if(!$item['done']): ?>
-            <a href="mark.php?as=done&item=<?php echo $item['id'];  ?>" class="done-button">Mark as Done</a>
+            <a href="mark.php?as=done&item=<?php echo $item['id'];  ?>" class="done-button">Mark as In Compliance</a>
+          <?php elseif($item['done']): ?>
+            <a href="mark.php?as=notdone&item=<?php echo $item['id'];  ?>" class="done-button">Unmark</a>
           <?php endif; ?>
         </li>
       <?php endforeach; ?>
     </ul>
     <?php else: ?>
-      <p>No items to do!</p>
+      <p>No Compliance Items are Currently Listed!</p>
     <?php endif; ?>
 
     <form class="item-add" action="add.php" method="POST">
-      <input type="text" name="name" placeholder="Add to the to do list HERE." class="input" autocomplete="off" required>
+      <input type="text" name="name" placeholder="Add an Item to the List." class="input" autocomplete="off" required>
       <input type="submit" value="Add Item" class="submit">
     </form>
 

@@ -1,6 +1,7 @@
 body {
-  background-color:#eceff0;
+  background-image: url('http://simplifya.com/wp-content/uploads/2016/11/marijuana-plants-background.jpg'); background-repeat: no-repeat; background-position: top center; background-attachment: fixed;
 }
+
 
 body,
 input {
@@ -12,6 +13,18 @@ input {
 a {
   text-decoration: none;
   border-bottom: 1px dashed #363639;
+}
+
+/*h1 {
+  color: #66CDAA;
+}*/
+
+/* Logo */
+.logo {
+  margin-left: 21%;
+  margin-right: 21%;
+
+  position: static;
 }
 
 /* List */
@@ -28,7 +41,7 @@ a {
 
 .list .header {
   font-family: "Shadows Into Light Two", cursive;
-  margin: 0 0 10px 0;
+  text-align: center;
 }
 
 /* Item */
