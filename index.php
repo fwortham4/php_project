@@ -25,7 +25,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Forrestifiya</title>
+  <title>Forrestifya</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Shadows+Into+Light+Two" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="CSS/main.css" type="text/css">
@@ -34,8 +34,8 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
 </head>
 <body>
   <div class="list">
-    <img src="http://nexttestsite.com/simplifyaweb/wp-content/uploads/2016/06/simplifya_logo.png" alt="Simplifya" class="logo" scale="0">
-    <!-- <h1 class="header">Cannabis Compliance</h1> -->
+    <!-- <img src="http://nexttestsite.com/simplifyaweb/wp-content/uploads/2016/06/simplifya_logo.png" alt="Simplifya" class="logo" scale="0"> -->
+    <h1 class="header">Cannabis Compliance</h1>
 
     <?php if(!empty($items)): ?>
     <ul class="items">

@@ -10,21 +10,14 @@ input {
   color: #363639;
 }
 
+h6 {
+  text-align: center;
+  color: #363639;
+}
+
 a {
   text-decoration: none;
   border-bottom: 1px dashed #363639;
-}
-
-/*h1 {
-  color: #66CDAA;
-}*/
-
-/* Logo */
-.logo {
-  margin-left: 21%;
-  margin-right: 21%;
-
-  position: static;
 }
 
 /* List */
