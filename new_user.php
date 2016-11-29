@@ -1,3 +1,21 @@
+<?php
+  require_once 'app/init.php';
+
+  if (isset($_REQUEST['username'])){
+
+    $password = stripslashes($_REQUEST['password']);
+
+    $userQuery = $db->prepare("
+      INSERT INTO users(username, password, email, created_at)
+      VALUES (:username, '".md5($password)."', :email, NOW())
+    ");
+
+    $userQuery = $db->execute([
+      'user' => $_SESSION['user_id']
+    ]);
+
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +29,7 @@
 </head>
 <body>
   <div class="list">
-    <form id='register' action='register.php' method='POST'
+    <form id='register' action='' method='POST'
         accept-charset='UTF-8'>
       <!-- <fieldset > -->
       <h1 class="header">Register</h1>
