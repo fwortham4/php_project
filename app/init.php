@@ -2,7 +2,7 @@
 
 session_start();
 
-$_SESSION['user_id'] != '';
+$_SESSION['user_id'] = 1;
 
 // php data object
 $db = new PDO('mysql:dbname=php_project;host=localhost', 'root', 'Ok5jl5Ql');
